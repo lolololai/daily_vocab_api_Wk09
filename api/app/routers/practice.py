@@ -13,7 +13,14 @@ router = APIRouter()
 def validate_sentence(
     request: ValidateSentenceRequest,
     db: Session = Depends(get_db)
+
 ):
+    return ValidateSentenceResponse(
+        score=85,
+        level="Intermediate",
+        suggestion="Good job! Just a minor correction needed.",
+        corrected_sentence="This is the corrected sentence."
+    )
     """
     Receive user sentence and validate it (mock AI)
     Save results to database
